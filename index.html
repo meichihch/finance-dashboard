@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Dashboard</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Last resort: if the app's code fails to load at all, say so instead of showing a blank page
+      window.__showBootError = function (msg) {
+        var r = document.getElementById('root')
+        if (r && !r.hasChildNodes()) r.innerHTML = '<pre style="padding:24px;color:#f87171;font:12px system-ui;white-space:pre-wrap">' + String(msg).replace(/</g, '&lt;') + '</pre>'
+      }
+      window.addEventListener('unhandledrejection', function (e) { window.__showBootError('Unhandled: ' + (e.reason && (e.reason.stack || e.reason.message) || e.reason)) })
+      setTimeout(function () { window.__showBootError('The app did not start within 8 seconds. Open the console (⌘⌥J) for details.') }, 8000)
+    </script>
+    <script type="module" src="/src/main.jsx" onerror="__showBootError('Failed to load /src/main.jsx')"></script>
+  </body>
+</html>
